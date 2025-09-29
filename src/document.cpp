@@ -12,9 +12,9 @@
 Document load_document(const std::string& filepath, int id){
     std::ifstream file(filepath); //open file for reading
 
-    if(!file.is_open()){
+    if(!file.is_open()){ //error handling, quick check if file path is correct
         std::cerr << "Error: Could not open file " << filepath << std::endl;
-        return {id, ""};
+        return {id, ""}; 
     }
 
     std::stringstream buffer; //lets us stream the file into memory

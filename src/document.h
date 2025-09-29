@@ -5,7 +5,7 @@
 
 //simple struct to represent document
 struct Document {
-    int id;
+    int id; //unique id for a document
     std::string content; //raw text in document
 };
 

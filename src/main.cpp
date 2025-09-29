@@ -21,8 +21,8 @@ int main() {
 
     //print the tokens
     std::cout << "Tokens from Doc1:" << std::endl;
-    for (const auto& t : tokens) {
-        std::cout << t << " ";
+    for (const auto& t : tokens) { 
+        std::cout << t << " "; //create a space between each token
     }
     std::cout << std::endl;
 

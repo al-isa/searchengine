@@ -1,6 +1,7 @@
 #include <iostream> //for std::cout printing
 #include "document.h"
 #include "tokenizer.h"
+#include "index.h"
 
 //forward declare our function since its already decalred in docment.cpp
 Document load_document(const std::string& filepath, int id);
@@ -16,13 +17,29 @@ int main() {
     // std::cout << "Doc2 contents: " << doc2.content << "\n";
     // std::cout << "Doc3 contents: " << doc3.content << "\n";
 
-    //tokenize its contents
-    std::vector<std::string> tokens = tokenize(doc1.content);
+    // //tokenize its contents
+    // std::vector<std::string> tokens = tokenize(doc1.content);
 
-    //print the tokens
-    std::cout << "Tokens from Doc1:" << std::endl;
-    for (const auto& t : tokens) { 
-        std::cout << t << " "; //create a space between each token
+    // //print the tokens
+    // std::cout << "Tokens from Doc1:" << std::endl;
+    // for (const auto& t : tokens) { 
+    //     std::cout << t << " "; //create a space between each token
+    // }
+    // std::cout << std::endl;
+
+    //create inverted index
+    InvertedIndex idx;
+    idx.add_document(doc1);
+    idx.add_document(doc2);
+    idx.add_document(doc3);
+
+    //search test
+    std::string query = "cat";
+    auto results = idx.search(query);
+
+    std::cout << "Search Results for ' " << query << "': ";
+    for (int id : results) {
+        std::cout << id << " ";
     }
     std::cout << std::endl;
 

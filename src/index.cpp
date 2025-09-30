@@ -1,10 +1,10 @@
 #include "index.h"
 #include "tokenizer.h"
-#include <algorithim> //for std::find
+#include <algorithm> //for std::find
 
 //add one documents token into the index
 void InvertedIndex::add_document(const Document& doc) {
-    auto tokens = tokenize(doc.content) //break text into words
+    auto tokens = tokenize(doc.content); //break text into words
     for (const auto& token : tokens) {
         //avoid duplicate doc IDs if word appears multiple times
         if (index[token].empty() || index[token].back() != doc.id) {

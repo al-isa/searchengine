@@ -56,7 +56,7 @@ int main() {
     idx.add_document(doc3);
 
     //search test
-    std::string query = "cat";
+    std::string query = "mat";
     auto results = idx.search(query);
 
     std::cout << "Search Results for '" << query << "': ";
